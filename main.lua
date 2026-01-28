@@ -175,9 +175,9 @@ elseif uiState.Theme then
 end
 
 local Window = Rayfield:CreateWindow({
-   Name = "Nyxara ⚡️",
+   Name = "Nyxara Legacy",
    Icon = 0,
-   LoadingTitle = "Loading Nyx⚡️...",
+   LoadingTitle = "Loading Nyxara...",
    LoadingSubtitle = "Built For Almost All Executors",
    Theme = selectedTheme,
    ToggleUIKeybind = "K",
@@ -517,16 +517,6 @@ local JumpPowerSlider = MainTab:CreateSlider({
         uiState.JumpPower=Value
         local char=player.Character
         if char and char:FindFirstChild("Humanoid") then char.Humanoid.JumpPower=Value end
-        if uiState.RememberSettings then persistUIState() end
-    end
-})
-
-local WalkSpeedSlider = MainTab:CreateSlider({
-    Name="WalkSpeed Slider",Range={16,200},Increment=1,Suffix="Speed",CurrentValue=uiState.WalkSpeed,
-    Callback=function(Value)
-        uiState.WalkSpeed=Value
-        local char=player.Character
-        if char and char:FindFirstChild("Humanoid") then char.Humanoid.WalkSpeed=Value end
         if uiState.RememberSettings then persistUIState() end
     end
 })
@@ -1554,9 +1544,9 @@ ConfigTab:CreateToggle({
         uiState.AutoExecute = val
         persistUIState()
         
-        -- FIXED: Use the exact auto-execute script you provided
+        
         local scriptContent = [[queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
-queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/yonskoo/yonsko-hub-main-script/refs/heads/main/main.lua'))()")]]
+queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/yonskoo/Nyxara-Legacy/refs/heads/main/main.lua'))()")]]
         
         if val then
             -- Execute the queue teleport script
